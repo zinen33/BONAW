@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حالة البوت</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #0074e4, #ffffff); /* الخلفية الافتراضية */
+            background-size: 400% 400%; /* حجم الخلفية للتأثير */
+            animation: gradientAnimation 5s linear infinite alternate; /* خصائص الحركة */
+        }
+
+        #status {
+            color: #2ecc71; /* لون أخضر لحالة الاتصال */
+            font-weight: bold;
+        }
+
+        #clock {
+            font-size: 2rem;
+            color: #333; /* لون رمادي غامق للساعة */
+        }
+
+        #date {
+            font-size: 1.5rem;
+            color: #333; /* لون رمادي غامق للتاريخ */
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+            100% {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="status">
+        <p>حالة البوت: متصل</p>
+    </div>
+
+    <div id="clock">
+        <script>
+            function updateClock() {
+                const now = new Date();
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                const timeString = `${hours}:${minutes}:${seconds}`;
+                document.getElementById('clock').textContent = timeString;
+            }
+
+            setInterval(updateClock, 1000);
+            updateClock();
+        </script>
+    </div>
+
+    <div id="date">
+        <script>
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString('ar-EG', options);
+            document.getElementById('date').textContent = dateString;
+        </script>
+    </div>
+
+    <div id="footer">
+        <p>هذا البوت تم تطويره بواسطة جونيل ماجالانيس</p>
+    </div>
+
+    <audio src="https://files.catbox.moe/ikz3fn.mp3" autoplay loop></audio>
+
+    <h1>شكرًا لاستخدامك </h1>
+    <p>تم تعديل هذا البوت بواسطة زينو</p>
+</body>
+</html>
